@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://schemas.nimtech.no/common.json",
+    "type":"object",
+    "properties": {
+        "actiontrigger":{
+            "$id": "#/actiontrigger",
+            "type":"object",
+            "properties": {
+                "Enabled":{
+                    "type":"boolean",
+                    "default":true
+                },
+                "name":{
+                    "description": "FriendlyName of trigger",
+                    "$id": "#/actiontrigger/name",
+                    "type":"string"
+                },
+                "description":{
+                    "description": "description of what the trigger does",
+                    "$id": "#/actiontrigger/description",
+                    "type":"string"
+                },
+                "triggers":{
+                    "type":"array",
+                    "items": {
+                        "$ref": "#/definitions/trigger"
+                    },
+                    "minItems":1   
+                },
+                "return":{
+                    "type":"string"
+                }
+            }
+
+        }
+    },
+    "definitions": {
+        "trigger":{
+            "type":"object",
+            "properties": {
+                "name":{
+                    "type":"string"
+                },
+                "value":{
+                    "type":"string"
+                }
+            }
+        }
+    }
+}
